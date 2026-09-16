@@ -1,6 +1,5 @@
 export default function Hedaer() {
 
-
   return (
     <div>
         <h1>Authentification Flow</h1>
