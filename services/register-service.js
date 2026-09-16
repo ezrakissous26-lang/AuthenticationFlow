@@ -1,11 +1,11 @@
 import bcrypt from 'bcrypt'
 import { createUser, getUserbyEmail } from '../repo/repo.js'
 
-export async function processUser(user) {
+export async function processRegister(user) {
     try {
         const { username, email, password } = user
         const hash = await bcrypt.hash(password, 10)
-        const isExist = await getUserbyEmail(user.email)
+        const isExist = await getUserbyEmail(email)
         if (!isExist) {
             await createUser({username, email, password: hash})
         } else {

@@ -20,3 +20,12 @@ export async function getUserbyEmail(email) {
         throw error
     }
 }
+
+export async function getAllUser() {
+    try {
+        const data = await authCol.find({}).toArray()
+        return data
+    } catch (error) {
+        throw error
+    }
+}
