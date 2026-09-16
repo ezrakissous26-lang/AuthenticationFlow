@@ -23,7 +23,7 @@ export async function getUserbyEmail(email) {
 
 export async function getAllUser() {
     try {
-        const data = await authCol.find({}).toArray()
+        const data = await authCol.find({}, {projection: {password: 0}}).toArray()
         return data
     } catch (error) {
         throw error
