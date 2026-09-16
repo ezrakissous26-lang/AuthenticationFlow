@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Users from "./pages/Users";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
     <Routes>
       <Route path="/register" element={<Register/>}/>
       <Route path="/login" element={<Login/>}/>
-      <Route path="/users" element={<Users/>}/>
+      <Route path="/users" element={<ProtectedRoute> <Users/> </ProtectedRoute>}/>
     </Routes>
     <Footer/>
     </>
