@@ -16,7 +16,7 @@ export async function loginService(user) {
         } else {
             const checkGoodPassword = await bcrypt.compare(password, userInfo.password)
             if (checkGoodPassword) {
-                const token = jwt.sign({ email }, JWT_SECRET)
+                const token = jwt.sign({ email, userId: userInfo._id }, JWT_SECRET)
                 return token
             } else {
                 const err = new Error('Wrong password')

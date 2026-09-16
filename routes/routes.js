@@ -5,11 +5,6 @@ import { checkValidHeader } from '../middleware/auth-middleware.js'
 
 export const router = express.Router()
 
-
-router.get('/', (req , res) => {
-    res.status(200).json({message: 'Server connected'})
-})
-
 router.post('/auth/register', checkValidregister , controllerAuthRegister)
 
 router.post('/auth/login', checkValidLogin , controllerLogin)
