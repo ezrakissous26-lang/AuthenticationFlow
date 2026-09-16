@@ -10,11 +10,12 @@ export default function Login() {
   return (
     <form onSubmit={ async (e) => {
         e.preventDefault()
-        const data = ( await login(email, password))
+        const data = await login(email, password)
         setToken(data.token)
         setMessage(data.message)
         }}>
 
+        <h3>LogIn to your account</h3>
         <input onChange={(e) =>  setEmail(e.target.value)} type="email" value={email} name="" id="" placeholder="Enter your e-mail"/>
         <input onChange={(e) => setPassword(e.target.value)} type="password" value={password} name="" id="" placeholder="Enter your password"/>
         <button type="reset">Reset</button>
