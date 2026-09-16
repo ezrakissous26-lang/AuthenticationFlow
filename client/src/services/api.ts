@@ -38,3 +38,23 @@ export async function register(username: string, email: string, password: string
         throw error
     }
 }
+
+
+export async function getUsers(token) {
+    try {
+        const response = await fetch('http://localhost:3000/users', {
+            method: "GET",
+            headers: {Authorization: `Bearer ${token}`},
+        })
+        const data = await response.json()
+        console.log(data)
+        if(!response.ok) {
+            const err = new Error(data.error)
+            throw err
+        }
+        return data
+    } catch (error) {
+        console.log(error)
+        throw error
+    }
+}
