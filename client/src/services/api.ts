@@ -6,6 +6,7 @@ export async function login(email: string, password: string) {
             body: JSON.stringify({email, password})
         })
         const data = await response.json()
+        console.log(data)
         if(!response.ok) {
             const err = new Error(data.error)
             throw err
